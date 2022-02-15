@@ -4,7 +4,7 @@ CREATE DATABASE avtaar_db;
 
 -- \c avtaar_db
 
-CREATE EXTENSION IF NOT EXISTS "uuid-oosp";
+CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
 
 CREATE TABLE users (
     userid uuid PRIMARY KEY DEFAULT uuid_generate_v4(),
@@ -22,7 +22,7 @@ CREATE TABLE events (
     location VARCHAR(51) NOT NULL,
     startdate DATE NOT NULL,
     enddate DATE NOT NULL,
-    userid INT NOT NULL,
+    userid uuid NOT NULL,
     FOREIGN KEY (userid)
     REFERENCES users(userid)
 );

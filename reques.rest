@@ -1,0 +1,19 @@
+POST http://localhost:3000/api/users
+Content-Type: application/json
+
+{
+    "name":"deepak",
+    "age":26,
+    "gender":"male",
+    "email":"xyz@duck.com",
+    "password":"adfdf@008"
+}
+
+###
+POST http://localhost:3000/api/auth/login
+Content-Type: application/json
+
+{
+    "email":"x91@duck.com",
+    "password":"xyz"
+}
