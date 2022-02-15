@@ -1,19 +1,30 @@
+### Add new user
 POST http://localhost:3000/api/users
 Content-Type: application/json
 
 {
-    "name":"deepak",
+    "name":"user_name",
     "age":26,
     "gender":"male",
-    "email":"xyz@duck.com",
-    "password":"adfdf@008"
+    "email":"user@email.com",
+    "password":"password"
 }
 
-###
+### Login using valid email and pass
 POST http://localhost:3000/api/auth/login
 Content-Type: application/json
 
 {
-    "email":"x91@duck.com",
-    "password":"xyz"
+    "email":"user@email.com",
+    "password":"valid_password"
 }
+
+### Get users from DB with a valid refresh token, basically when a user is loged in
+GET http://localhost:3000/api/users
+Authorization: Bearer <refresh_token_value>
+
+### Get a new accessToken using refreshToken
+GET http://localhost:3000/api/auth/refresh_token
+
+### Delete refreshToken or logout
+DELETE http://localhost:3000/api/auth/refresh_token
