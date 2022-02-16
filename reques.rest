@@ -3,10 +3,10 @@ POST http://localhost:3000/api/users
 Content-Type: application/json
 
 {
-    "name":"user_name",
+    "name":"demo",
     "age":26,
     "gender":"male",
-    "email":"user@email.com",
+    "email":"demo@email.com",
     "password":"password"
 }
 
@@ -15,13 +15,13 @@ POST http://localhost:3000/api/auth/login
 Content-Type: application/json
 
 {
-    "email":"user@email.com",
-    "password":"valid_password"
+    "email":"x91@duck.com",
+    "password":"pass"
 }
 
 ### Get users from DB with a valid refresh token, basically when a user is loged in
 GET http://localhost:3000/api/users
-Authorization: Bearer <refresh_token_value>
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyaWQiOnsidXNlcmlkIjoiMDI5Yzk0Y2EtYTVlZi00MzEzLWE5ZjUtMTkwY2IwN2ZiOWZkIiwibmFtZSI6ImhpdGVzaCIsImFnZSI6MjQsImdlbmRlciI6Im1hbGUiLCJlbWFpbCI6Ing5MUBkdWNrLmNvbSIsInBhc3N3b3JkIjoiJDJiJDEwJFdVSThWdlZRenlPSVJZUzk4Zmw5Yi43RkJSanVtRHpkZ2k0dG5RUXg1bHJDblI4SkN4QS8uIn0sImlhdCI6MTY0NDk2MjcwMCwiZXhwIjoxNjQ0OTYyNzIwfQ.seBJf5tgKUeQcURll1KaEQd_eEHUYwqW3vDiTqRUjBc
 
 ### Get a new accessToken using refreshToken
 GET http://localhost:3000/api/auth/refresh_token

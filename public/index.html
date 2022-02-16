@@ -8,5 +8,29 @@
 </head>
 <body>
     <h1>Avtaar-capstone</h1>
+    <p id="login-status">not logged in</p>
+    <div>
+        <section>
+            <h2>Login here</h2>
+            <form id="form-login">
+                <input type="text" name="email">
+                <input type="password" name="password">
+                <input type="submit" value="Login">
+            </form>
+        </section>
+
+        <section>
+            <h2>Events</h2>
+            <button id="button-get-events">Get Events</button>
+            <ul id="event-list"></ul>
+        </section>
+
+        <section>
+            <h2>Logout</h2>
+                <button id="logout-button">Logout</button>
+        </section>
+    </div>
+    <script type="module" src="./index.js"></script>
+    <script type="module" src="./jwt-decode.js"></script>
 </body>
 </html>
