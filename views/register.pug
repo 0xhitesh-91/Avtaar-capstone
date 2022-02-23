@@ -1,0 +1,39 @@
+extends base
+
+block vars
+    - var title="Register"
+
+block body
+    if status
+    h1.heading-center Create an account
+    div(class="input-form")
+        p STATUS: #{status}
+        form(method="post" action="/auth/register")
+            span Name:
+            input(type="text", name="name", required=true)
+            br
+
+            span Age:
+            input(type="text", name="age", required=true)
+            br
+
+            select(name="gender") 
+                option(value="male") Male
+                option(value="female") Female
+                option(value="other") Other
+            br
+            
+            span Email:
+            input(type="email", name="email", required=true)
+            br
+
+            span password:
+            input(type="password", name="password", required=true)
+            br
+
+            //input(type="hidden", name="_csrf", value=csrfToken)
+
+            input(type="submit" value="Register")
+        
+        p
+            a(href="/auth/login") already have an account? login

@@ -1,28 +1,24 @@
--- Database = postgresql 12
-
-CREATE DATABASE avtaar_db;
-
--- \c avtaar_db
+CREATE DATABASE avtaar;
 
 CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
 
-CREATE TABLE users (
-    userid uuid PRIMARY KEY DEFAULT uuid_generate_v4(),
-    name VARCHAR(251) NOT NULL,
-    age INT NOT NULL,
-    gender VARCHAR(51),
-    email VARCHAR(251) UNIQUE NOT NULL,
-    password VARCHAR(251) NOT NULL
-);
+create table users(
+userid uuid primary key DEFAULT uuid_generate_v4(),
+name varchar(251) not null,
+age varchar(7) not null,
+gender varchar(51),
+email varchar(251) unique not null,
+password varchar(251) not null
+); 
 
-CREATE TABLE events (
-    eventid SERIAL PRIMARY KEY,
-    name VARCHAR(251) NOT NULL,
-    description VARCHAR(251),
-    location VARCHAR(51) NOT NULL,
-    startdate DATE NOT NULL,
-    enddate DATE NOT NULL,
-    userid uuid NOT NULL,
-    FOREIGN KEY (userid)
-    REFERENCES users(userid)
+create table events(
+eventid serial primary key,
+name varchar(251) not null,
+description varchar(251),
+location varchar(51) not null,
+startdate date not null,
+enddate date not null,
+userid uuid not null,
+foreign key (userid)
+references users(userid)
 );

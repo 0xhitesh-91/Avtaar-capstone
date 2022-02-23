@@ -1,0 +1,46 @@
+#btn-logout {
+    background-color: black;
+}
+
+.heading-center{
+    text-align: center;
+}
+
+.input-form{
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    margin: 0 auto;
+    padding: 2rem;
+    border: 1px black solid;
+}
+
+/*---Dashboard---*/
+
+#nav-bar{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: 1px black solid;
+}
+
+#input-form-event{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+#event-div{
+    display: flex;
+    border: 1px black solid;
+}
+
+#event-add-div, #event-search-div{
+    flex: 1;
+    padding-bottom: 1rem;
+    border-left: 1px black solid;
+}
+
+th, td{
+    border: 1px black solid;
+}

@@ -1,0 +1,105 @@
+extends base
+
+block vars
+    - var title="Dashboard"
+
+block body
+    if status
+    if username
+    if email
+    if eventList
+    if userList
+    div(id="nav-bar")
+        div
+            h1 Dashboard
+            p #{username}
+
+        form(method="post" action="/auth/logout") 
+            input(type="hidden", name="email")
+            input(type="hidden", name="password")
+
+            //input(type="hidden", name="_csrf", value=csrfToken)
+
+            input(type="submit" value="Logout")
+            p #{email}
+    div(id="event-div")
+        div(id="event-add-div")
+            h2 Add new Event
+            p STATUS: #{status}
+            form.input-form(method="post" action="/event")
+                span Name:
+                input(type="text", name="eventName", required=true)
+
+                span Description:
+                input(type="text", name="eventDiscription", required=true)
+
+                span Location: 
+                input(type="text" name="eventLocation", required=true)
+
+                span User: 
+                select(name="username") 
+                    each user in userList
+                        option(value=user.name ) #{user.name}
+
+                span Start Date:
+                input(type="date", name="eventStartdate", required=true)
+
+                span End Date: 
+                input(type="date", name="eventEnddate", required=false)
+
+                //input(type="hidden", name="_csrf", value=csrfToken)
+
+                input(type="submit" value="Add Event")
+
+        div(id="event-search-div")
+            h2 Search Event
+            p STATUS: #{searchstatus}
+            form.input-form(action="/event/searchEvents", method="post")
+                span From:
+                input(type="date", name="startdate", required=true)
+
+                span To:
+                input(type="date", name="enddate", required=true)
+
+                input(type="submit", value="Search Event")
+
+            form.input-form(action="/event/searchEventUserWise", method="post")
+                p User Wise Search
+                span User: 
+                select(name="name") 
+                    each user in userList
+                        option(value=user.name ) #{user.name}
+                br
+                input(type="submit", value="Search Event")
+
+    
+    form(action="/event", method="get")
+            input(type="submit", value="Fetch all event")
+
+    div(id="eventList-div")
+        table
+            tr 
+                th Id
+                th Name
+                th Discription
+                th Location
+                th User
+                th Start Date
+                th End Date
+            each event in eventList 
+            
+                tr
+                    td= event.eventid 
+                    td= event.name
+                    td= event.description
+                    td= event.location
+                    td= event.username
+                    td= moment(event.startdate).format("DD/MM/YYYY")
+                    td= moment(event.enddate).format("DD/MM/YYYY")
+    
+    
+    
+    
+    
+    script
+        include ./script.js
